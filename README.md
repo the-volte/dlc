@@ -40,6 +40,20 @@ Unfortunately the DLC doesn't work with Circle CI :(
 After the initial build, update the project by changing this README file.
 
 ```
+Sending build context to Docker daemon  64.51kB
+Step 1/2 : FROM alpine:3.14.0
+3.14.0: Pulling from library/alpine
+
+Digest: sha256:234cb88d3020898631af0ccbbcca9a66ae7306ecd30c9720690858c1b007d2a0
+Status: Downloaded newer image for alpine:3.14.0
+ ---> b0e47758dc53
+Step 2/2 : RUN sleep 10
+ ---> Running in 7f9e32d883ea
+Removing intermediate container 7f9e32d883ea
+ ---> a0d57ddf23cc
+Successfully built a0d57ddf23cc
+Successfully tagged fake/dlc:latest
+CircleCI received exit code 0
 ```
 
 Instead of using cache, it is removing the intermediate containers.
