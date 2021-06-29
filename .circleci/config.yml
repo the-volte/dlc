@@ -1,0 +1,29 @@
+version: 2.1
+
+orbs:
+  aws-ecr: circleci/aws-ecr@7.0.0
+
+executors:
+  arm-executor:
+    machine:
+      docker_layer_caching: true
+      image: ubuntu-2004:202101-01
+    resource_class: arm.medium
+
+jobs:
+  build-image:
+    executor: arm-executor
+    environment:
+      FAKE_ACCOUNT_URL: "fake"
+    steps:
+      - aws-ecr/build-image:
+          account-url: FAKE_ACCOUNT_URL
+          checkout: true
+          repo: dlc
+          # remote-docker-layer-caching: true
+
+workflows:
+  version: 2.1
+  build-and-deploy:
+    jobs:
+      - build-image
