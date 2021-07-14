@@ -1,4 +1,4 @@
-Simple demo to show DLC not working with ARM64 in CircleCI  
+Simple demo to show DLC not working with ARM64 in CircleCI.
 
 # Build locally
 
